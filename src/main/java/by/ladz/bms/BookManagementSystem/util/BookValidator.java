@@ -1,0 +1,26 @@
+package by.ladz.bms.BookManagementSystem.util;
+
+
+import by.ladz.bms.BookManagementSystem.models.Book;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
+import java.time.Year;
+
+@Component
+public class BookValidator implements Validator {
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Book.class.equals(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Book book = (Book) target;
+        if(book.getPublicationYear() > Year.now().getValue()){
+            errors.rejectValue("publicationYear", "",
+                    "Publication year cannot be greater than the current year");
+        }
+    }
+}

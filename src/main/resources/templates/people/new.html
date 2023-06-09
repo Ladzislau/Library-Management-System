@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #239B56;
+            color: white;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 100px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #006699;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
+    <title>Create new person</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <label for="firstName">Enter first name:</label>
+    <input id="firstName" type="text" th:field="*{firstName}">
+    <div style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+    <br/>
+    <label for="lastName">Enter last name:</label>
+    <input id="lastName" type="text" th:field="*{lastName}">
+    <div style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+    <br/>
+    <label for="yearOfBirth">Enter year of birth:</label>
+    <input id="yearOfBirth" type="text" th:field="*{yearOfBirth}">
+    <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}"></div>
+    <br/>
+    <input type="submit" value="Create!">
+</form>
+</body>
+</html>

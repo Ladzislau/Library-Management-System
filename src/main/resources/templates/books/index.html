@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #006699;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        a {
+            display: block;
+            width: 400px;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        a:hover {
+            background-color: #D0D3D4;
+        }
+    </style>
+    <title>Books</title>
+</head>
+<body>
+
+<form th:method="GET" th:action="@{/books/search}">
+    <label for="search" >Enter the search request: </label>
+    <input id="search" type="text" name="book_name">
+    <input type="submit" value="Search!">
+</form>
+
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}"
+       th:text="${book.getName()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getPublicationYear()}">book</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/books/new">Add a new book</a>
+
+</body>
+</html>
