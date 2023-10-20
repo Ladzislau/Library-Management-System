@@ -33,7 +33,12 @@ To get started with My Project, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/Ladzislau/Library-Management-System.git`
 2. Install the necessary dependencies.
-3. Build and run the project.
+
+   Next, rename the file `application.properties.origin` to `application.properties` and configure it with the necessary settings for your application to work correctly. You can find this file in the project directory.
+
+3. Run the `init.sql` script to create the database. You can find this script in the `mysql/init-scripts` directory.
+
+4. Build and run the project.
 
 OR
 
