@@ -34,3 +34,10 @@ To get started with My Project, follow these steps:
 1. Clone the repository: `git clone https://github.com/Ladzislau/Library-Management-System.git`
 2. Install the necessary dependencies.
 3. Build and run the project.
+
+OR
+
+1. Install Docker: You can download Docker from [Docker's official website](https://www.docker.com/get-started).
+2. Once Docker is installed, you can use Docker Compose to simplify the setup process. Simply run the following command in your project directory:
+   ```bash
+   docker-compose up
