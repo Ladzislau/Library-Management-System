@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    image: ladzislau/book-management-system:1.0.1
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/library_bms
+      DB_USERNAME: root
+      DB_PASSWORD: root1234
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: library_bms
+    volumes:
+      - ./mysql/init-scripts:/docker-entrypoint-initdb.d
+
