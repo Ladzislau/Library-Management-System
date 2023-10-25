@@ -1,3 +1,4 @@
+CREATE DATABASE library_bms;
 USE library_bms;
 
 CREATE TABLE if not exists person (
